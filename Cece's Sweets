@@ -1,0 +1,31 @@
+##I created a store database
+CREATE table Ceces_sweets (id Integer primary key, item text, quantity integer, price numeric, aisle integer);
+
+##I inserted values into table
+INSERT into ceces_sweets VALUES (1, "suckers", 10, 1, 7);
+INSERT into ceces_sweets VALUES (2, "jawbreakers", 5, 2, 9);
+INSERT into ceces_sweets VALUES (3, "junior mints", 15, 3, 8);
+INSERT into ceces_sweets VALUES (4, "cookie dough bites", 15, 3, 8);
+INSERT into ceces_sweets VALUES (5, "lemonheads", 10, 3, 9);
+INSERT into ceces_sweets VALUES (6, "snickers", 20, 3, 10);
+INSERT into ceces_sweets VALUES (7, "heath bar", 20, 3, 10);
+INSERT into ceces_sweets VALUES (8, "milky way", 20, 3, 10);
+INSERT into ceces_sweets VALUES (9, "hot tamales", 15, 3, 8);
+INSERT into ceces_sweets VALUES (10, "nerds", 25, 2, 6);
+INSERT into ceces_sweets VALUES (11, "reese cup", 20, 3, 10);
+INSERT into ceces_sweets VALUES (12, "jelly beans", 10, 2, 6);
+INSERT into ceces_sweets VALUES (13, "york patties", 20, 2, 10);
+INSERT into ceces_sweets VALUES (14, "twizzlers", 10, 3, 6);
+INSERT into ceces_sweets VALUES (15, "hershey kiss", 20, 3, 10);
+
+## I selected all data from the table to determine accuracy of data input
+SELECT * FROM Ceces_sweets;
+
+##I used basic aggregate functions to summarize data
+SELECT SUM(quantity) FROM Ceces_sweets;
+
+SELECT MAX(price) FROM Ceces_sweets;
+
+##Basic query to order data
+SELECT * FROM Ceces_sweets
+ORDER BY price;
