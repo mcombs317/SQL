@@ -1,4 +1,5 @@
-##I created a store database
+/* I created a candy store database. */
+
 CREATE table Ceces_sweets (id Integer primary key, item text, quantity integer, price numeric, aisle integer);
 
 ##I inserted values into table
@@ -18,14 +19,14 @@ INSERT into ceces_sweets VALUES (13, "york patties", 20, 2, 10);
 INSERT into ceces_sweets VALUES (14, "twizzlers", 10, 3, 6);
 INSERT into ceces_sweets VALUES (15, "hershey kiss", 20, 3, 10);
 
-## I selected all data from the table to determine accuracy of data input
+/* I selected all data from the table to determine accuracy of data input. */
 SELECT * FROM Ceces_sweets;
 
-##I used basic aggregate functions to summarize data
+/* I used basic aggregate functions to summarize data. */
 SELECT SUM(quantity) FROM Ceces_sweets;
 
 SELECT MAX(price) FROM Ceces_sweets;
 
-##Basic query to order data
+/* Basic query to order data. */
 SELECT * FROM Ceces_sweets
 ORDER BY price;
