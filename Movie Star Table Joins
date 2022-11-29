@@ -1,0 +1,38 @@
+/* I created two tables about movie stars, where they live and their hobbies.*/
+
+CREATE TABLE movie_star (id INTEGER PRIMARY KEY, name TEXT, movie TEXT, hometown TEXT);
+
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (1, "Tom Cruise", "TopGun", "LosAngeles");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (2, "Jen Lawrence", "HungerGames", "Louisville");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (3, "Reese Witherspoon", "Sweet Home Alabama", "Nashville");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (4, "Robert Pattinson", "Twillight", "London");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (5, "Scarlett Johansson", "Avengers Endgame", "New York City");
+
+CREATE table star_hobbies (id INTEGER PRIMARY KEY, name text, hobbies text);
+
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (1, "Jen Lawrence", "swimming");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (2, "Tom Cruise", "cycling");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (3, "Reese Witherspoon", "reading");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (4, "Robert Pattinson", "writing");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (5, "Scarlett Johansson", "singing");
+
+/* I joined the two tables to merge information about the movie stars. */
+
+SELECT movie_star.name, star_hobbies.hobbies, movie_star.hometown FROM movie_star
+JOIN star_hobbies
+ON movie_star.name = star_hobbies.name;
+
+SELECT movie_star.id, movie_star.name, movie_star.movie, movie_star.hometown, star_hobbies.hobbies FROM movie_star
+JOIN star_hobbies
+ON movie_star.name = star_hobbies.name
+ORDER BY movie_star.name;
