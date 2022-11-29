@@ -111,26 +111,26 @@ INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,
 INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,OverseasPct,Year) VALUES (99,'Casino Royale','Sony',599.00,167.40,0.28,431.60,0.72,2006);
 INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,OverseasPct,Year) VALUES (100,'Tangled','BV',591.80,200.80,0.34,391.00,0.66,2010);
 
-##I selected all data to review information.
+/* I selected all data to review information. */
 SELECT * FROM topmovies;
 
-##I aggregated data to summarize basic information.
+/* I aggregated data to summarize basic information. */
 SELECT SUM(domestic), SUM(worldwide) FROM topmovies;
 SELECT AVG(domestic), AVG(worldwide) FROM topmovies;
 SELECT title, MAX(domestic), MAX(worldwide) FROM topmovies;
 SELECT title, MIN(domestic), MIN(worldwide) FROM topmovies;
 
-##I filtered data to determine the movies that grossed above average both domestically and worldwide.
+/* I filtered data to determine the movies that grossed above average both domestically and worldwide. */
 SELECT title, worldwide, domestic FROM topmovies
 WHERE domestic > 307 AND worldwide >862
 ORDER BY worldwide desc;
 
-##I filtered data to determine the top worldwide grossing movies in the 2010's.
+/* I filtered data to determine the top worldwide grossing movies in the 2010's. */
 SELECT title, year FROM topmovies
 WHERE year > 2009
 ORDER BY worldwide desc;
 
-##I filtered data to determine the years in order or most to least that had more than 1 top movie.
+/* I filtered data to determine the years in order of most to least that had more than 1 top movie. */
 SELECT COUNT(title), year FROM topmovies
 GROUP BY year
 HAVING COUNT(title) > 1
