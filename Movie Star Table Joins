@@ -1,9 +1,10 @@
 /* I created two tables about movie stars, where they live and their hobbies.*/
 
+
 CREATE TABLE movie_star (id INTEGER PRIMARY KEY, name TEXT, movie TEXT, hometown TEXT);
 
 INSERT INTO movie_star (id, name, movie, hometown)
-VALUES (1, "Tom Cruise", "TopGun", "LosAngeles");
+VALUES (1, "Tom Cruise", "TopGun", "Montecito");
 INSERT INTO movie_star (id, name, movie, hometown)
 VALUES (2, "Jen Lawrence", "HungerGames", "Louisville");
 INSERT INTO movie_star (id, name, movie, hometown)
@@ -12,6 +13,26 @@ INSERT INTO movie_star (id, name, movie, hometown)
 VALUES (4, "Robert Pattinson", "Twillight", "London");
 INSERT INTO movie_star (id, name, movie, hometown)
 VALUES (5, "Scarlett Johansson", "Avengers Endgame", "New York City");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (6, "Julia Roberts", "Pretty Woman", "Taos");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (7, "Sandra Bullock", "The Proposal", "Austin");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (8, "Matthew McConaughey", "Dallas Buyers Club", "Austin");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (9, "Oprah Winfrey", "Beloved", "Chicago");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (10, "Nicholas Cage", "National Treasure", "Las Vegas");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (11, "Leonardo DiCaprio", "Titanic", "New York City");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (12, "Jason Bateman", "Game Night", "Montecito");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (13, "Nicole Kidman", "Chicago", "Nashville");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (14, "Michelle Pfeiffer", "I Am Sam", "San Francisco");
+INSERT INTO movie_star (id, name, movie, hometown)
+VALUES (15, "Brad Pitt", "Mr and Mrs Smith", "New Orleans");
 
 CREATE table star_hobbies (id INTEGER PRIMARY KEY, name text, hobbies text);
 
@@ -25,14 +46,44 @@ INSERT INTO star_hobbies (id, name, hobbies)
 VALUES (4, "Robert Pattinson", "writing");
 INSERT INTO star_hobbies (id, name, hobbies)
 VALUES (5, "Scarlett Johansson", "singing");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (6, "Julia Roberts", "running");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (7, "Sandra Bullock", "swimming");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (8, "Matthew McConaughey", "singing");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (9, "Oprah Winfrey", "reading");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (10, "Nicholas Cage", "writing");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (11, "Leonardo DiCaprio", "cycling");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (12, "Jason Bateman", "running");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (13, "Nicole Kidman", "singing");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (14, "Michelle Pfeiffer", "reading");
+INSERT INTO star_hobbies (id, name, hobbies)
+VALUES (15, "Brad Pitt", "cycling");
 
-/* I joined the two tables to merge information about the movie stars. */
+/* I queried all info from both tables to determine accuracy of data input. */
+SELECT * from movie_star;
+SELECT * from star_hobbies;
 
-SELECT movie_star.name, star_hobbies.hobbies, movie_star.hometown FROM movie_star
-JOIN star_hobbies
-ON movie_star.name = star_hobbies.name;
+/* I performed basic queries. */
 
-SELECT movie_star.id, movie_star.name, movie_star.movie, movie_star.hometown, star_hobbies.hobbies FROM movie_star
+SELECT DISTINCT(hobbies) FROM star_hobbies;
+SELECT COUNT(hobbies) FROM star_hobbies WHERE hobbies = "reading";
+
+/* I joined the tables to merge information. */
+
+SELECT movie_star.name, movie_star.movie, movie_star.hometown, star_hobbies.hobbies FROM movie_star
 JOIN star_hobbies
 ON movie_star.name = star_hobbies.name
 ORDER BY movie_star.name;
+
+SELECT movie_star.name, star_hobbies.hobbies FROM movie_star
+JOIN star_hobbies
+ON movie_star.id = star_hobbies.id
+ORDER BY hobbies
