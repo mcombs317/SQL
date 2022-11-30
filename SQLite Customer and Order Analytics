@@ -1,4 +1,4 @@
-/* As an assignment, I answered the following questions from a database with multiple tables. */
+/* I answered the following questions from a database with multiple tables to quantify statistics about customer and order data.*/
 
 1.  How many orders were placed in January?
 2.  How many of those orders were for an iPhone?
@@ -7,6 +7,7 @@
 5.  What is the total revenue for each product sold in January? (Revenue can be calculated using the number of products sold and the price of the products).
 6.  Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
 7.  How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
+8.  List all the products sold in Los Angeles in February, and include how many of each were sold.
 
 
 /* I always review the tables I need before answering questions. */
@@ -52,3 +53,9 @@ FROM FebSales
 JOIN customers
 ON customers.order_id = FebSales.orderID
 WHERE quantity > 2;
+
+/* Answer to #8 */
+SELECT SUM(quantity), product
+FROM FebSales
+WHERE location LIKE "%Los Angeles%"
+GROUP BY product
